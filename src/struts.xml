@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<!-- 开启动态方法调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	<!-- 1开启静态方法调用 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+	
+	<package name="p11" namespace="/" extends="struts-default">
+		<!-- 底层自动从spring容器中通过名称获得内容，所以只写userAction就可以了 -->
+		<action name="userAction_*" class="userAction" method="{1}">
+			<result name="success">/success.jsp</result>
+		</action>
+	</package>
+	
+</struts>
